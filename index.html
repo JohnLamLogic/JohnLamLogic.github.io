@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John L'Amoreaux | Hardware & Embedded Systems Engineer</title>
+  <meta name="description"
+    content="Portfolio of John L'Amoreaux — FPGA design, semiconductor research, embedded systems, and software engineering." />
+  <meta name="keywords"
+    content="FPGA, Verilog, VHDL, embedded systems, semiconductor, hardware engineer, portfolio, John Lamoreaux" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* ── Dark theme (default) ── */
+    :root,
+    [data-theme="dark"] {
+      --bg: #0b0e13;
+      --surface: #111620;
+      --card: #161c27;
+      --border: #1e2a3a;
+      --nav-bg: rgba(11, 14, 19, 0.92);
+      --accent: #00c8a0;
+      --accent2: #0088cc;
+      --text: #e2e8f0;
+      --muted: #8da0b8;
+      --tag-bg: #0d2235;
+      --tag-text: #38bdf8;
+      --tag-border: #1e3a5a;
+      --hw-bg: #0d2a1e;
+      --hw-text: #34d399;
+      --hw-border: #064e3b;
+      --sw-bg: #0d1f35;
+      --sw-text: #60a5fa;
+      --sw-border: #1e3a5a;
+      --wip-bg: #1e0d26;
+      --wip-text: #c084fc;
+      --wip-border: #581c87;
+      --spec-bg: #061a10;
+      --spec-text: #4ade80;
+      --spec-border: #064e3b;
+      --code-color: #a5f3fc;
+      --radius: 10px;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Inter', sans-serif;
+    }
+
+    /* ── Light theme ── */
+    [data-theme="light"] {
+      --bg: #f4f6fb;
+      --surface: #eaecf3;
+      --card: #ffffff;
+      --border: #cdd5e2;
+      --nav-bg: rgba(244, 246, 251, 0.93);
+      --accent: #00957a;
+      --accent2: #006bb5;
+      --text: #18243a;
+      --muted: #52647a;
+      --tag-bg: #ddf0ff;
+      --tag-text: #005fa3;
+      --tag-border: #b0d4f5;
+      --hw-bg: #e6f7ef;
+      --hw-text: #0a6640;
+      --hw-border: #9dd4b5;
+      --sw-bg: #e3eeff;
+      --sw-text: #0049a3;
+      --sw-border: #aac6f0;
+      --wip-bg: #f2e8ff;
+      --wip-text: #6b21a8;
+      --wip-border: #cfa8f5;
+      --spec-bg: #0f1e12;
+      --spec-text: #4ade80;
+      --spec-border: #064e3b;
+      --code-color: #0060a8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* ── Theme toggle ── */
+    .theme-toggle {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.3rem 0.7rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .theme-toggle .toggle-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* ── Sections ── */
+    section {
+      padding: 90px 2rem 70px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    section:first-of-type {
+      padding-top: 120px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h2.section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 3rem;
+      padding-top: 80px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ── 3D Tag Sphere ── */
+    #tag-sphere {
+      flex-shrink: 0;
+      width: 380px;
+      height: 380px;
+      position: relative;
+      cursor: grab;
+    }
+
+    #tag-sphere:active {
+      cursor: grabbing;
+    }
+
+    #tag-sphere::after {
+      content: 'drag to rotate';
+      position: absolute;
+      bottom: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 1px;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .sphere-wrap {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .s-tag {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid;
+      white-space: nowrap;
+      text-decoration: none;
+      user-select: none;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      will-change: transform, opacity;
+    }
+
+    .s-tag:hover {
+      color: var(--accent) !important;
+      border-color: var(--accent) !important;
+      opacity: 1 !important;
+      text-decoration: none;
+    }
+
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .hero-name {
+      font-size: clamp(2.5rem, 6vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .chip {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── About ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .info-list .label {
+      color: var(--muted);
+      min-width: 100px;
+    }
+
+    .info-list .value {
+      color: var(--text);
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .skill-card h3 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    /* ── Projects ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s, background 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .project-type {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      white-space: nowrap;
+      margin-left: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .type-hw {
+      background: var(--hw-bg);
+      color: var(--hw-text);
+      border: 1px solid var(--hw-border);
+    }
+
+    .type-sw {
+      background: var(--sw-bg);
+      color: var(--sw-text);
+      border: 1px solid var(--sw-border);
+    }
+
+    .type-wip {
+      background: var(--wip-bg);
+      color: var(--wip-text);
+      border: 1px solid var(--wip-border);
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      flex: 1;
+      line-height: 1.7;
+    }
+
+    .project-specs {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--spec-text);
+      background: var(--spec-bg);
+      border: 1px solid var(--spec-border);
+      border-radius: 5px;
+      padding: 0.6rem 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-specs div {
+      margin-bottom: 0.15rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-footer {
+      margin-top: auto;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Research ── */
+    .research-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .research-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .research-card .research-sub {
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-family: var(--mono);
+      margin-bottom: 1rem;
+    }
+
+    .research-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.75;
+    }
+
+    .research-bullets {
+      list-style: none;
+    }
+
+    .research-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .research-bullets li::before {
+      content: '▸';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── Experience ── */
+    .exp-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .exp-company {
+      color: var(--accent);
+      font-size: 0.875rem;
+    }
+
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.75rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding: 0.25rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+    }
+
+    /* ── Education ── */
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .edu-degree {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .edu-school {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
+    }
+
+    .edu-detail {
+      color: var(--muted);
+      font-size: 0.825rem;
+      margin-top: 0.15rem;
+    }
+
+    .edu-gpa {
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .edu-gpa-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .contact-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent);
+    }
+
+    .contact-icon {
+      font-size: 1.4rem;
+    }
+
+    .contact-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: var(--mono);
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Scroll progress bar ── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      height: 2px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 0.08s linear;
+      pointer-events: none;
+    }
+
+    /* ── Hero dot-grid background ── */
+    #hero {
+      position: relative;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    [data-theme="light"] #hero::before {
+      opacity: 0.35;
+    }
+
+    #hero>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Hero name gradient ── */
+    .hero-name span {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── Typing cursor on hero tag ── */
+    .hero-tag .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--accent);
+      margin-left: 3px;
+      vertical-align: text-bottom;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* ── Status pulse dot ── */
+    .status-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 5px;
+      vertical-align: middle;
+      box-shadow: 0 0 0 0 rgba(0, 200, 160, 0.6);
+      animation: ripple 2s ease-out infinite;
+    }
+
+    [data-theme="light"] .status-dot {
+      box-shadow: 0 0 0 0 rgba(0, 149, 122, 0.6);
+    }
+
+    @keyframes ripple {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 200, 160, 0.5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 7px rgba(0, 200, 160, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 200, 160, 0);
+      }
+    }
+
+    /* ── Active nav link ── */
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    /* ── Card hover glows ── */
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 0 0 1px var(--accent), 0 12px 28px rgba(0, 200, 160, 0.1);
+    }
+
+    [data-theme="light"] .project-card:hover {
+      box-shadow: 0 0 0 1px var(--accent), 0 12px 28px rgba(0, 149, 122, 0.13);
+    }
+
+    .research-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(0, 200, 160, 0.08);
+    }
+
+    .exp-card:hover {
+      border-color: var(--border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    [data-theme="light"] .exp-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+
+    /* ── Chip / tag hover ── */
+    .chip,
+    .skill-tag {
+      transition: border-color 0.15s, color 0.15s, transform 0.15s;
+      cursor: default;
+    }
+
+    .chip:hover,
+    .skill-tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.06);
+    }
+
+    /* ── Scroll-triggered fade-in ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* stagger siblings */
+    .fade-in:nth-child(2) {
+      transition-delay: 0.07s;
+    }
+
+    .fade-in:nth-child(3) {
+      transition-delay: 0.14s;
+    }
+
+    .fade-in:nth-child(4) {
+      transition-delay: 0.21s;
+    }
+
+    .fade-in:nth-child(5) {
+      transition-delay: 0.28s;
+    }
+
+    .fade-in:nth-child(6) {
+      transition-delay: 0.35s;
+    }
+
+    /* ── Section title underline sweep ── */
+    h2.section-title {
+      position: relative;
+      padding-bottom: 0.75rem;
+      border-bottom: none;
+    }
+
+    h2.section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--border), transparent);
+    }
+
+    /* ── Canvas background ── */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      #tag-sphere {
+        width: 300px;
+        height: 300px;
+      }
+
+      #hero {
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 100px;
+        gap: 2.5rem;
+      }
+
+      #tag-sphere {
+        width: 260px;
+        height: 260px;
+        align-self: center;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .exp-header {
+        flex-direction: column;
+        gap: 0.25rem;
+      }
+
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
+      .nav-links li:nth-child(n+4) {
+        display: none;
+      }
+
+      .theme-toggle .toggle-label {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div id="progress-bar"></div>
+
+  <!-- ── Navigation ── -->
+  <nav>
+    <div class="nav-left">
+      <div class="nav-logo">JLA //</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <span class="toggle-icon" id="toggleIcon">☀</span>
+      <span class="toggle-label" id="toggleLabel">Light</span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-tag" id="heroTag"></div>
+      <h1 class="hero-name">John<br><span>L'Amoreaux</span></h1>
+      <p class="hero-sub">
+        Computer Hardware Engineering student at the University of Miami focused on FPGA design, semiconductor research,
+        and low-level systems engineering.
+        <br><span class="status-dot"></span>Currently conducting TRNG research at the NanoMagnetoElectronics Lab.
+      </p>
+      <div class="hero-chips">
+        <span class="chip">VHDL</span>
+        <span class="chip">Verilog</span>
+        <span class="chip">FPGA</span>
+        <span class="chip">Semiconductor</span>
+        <span class="chip">C / C++</span>
+        <span class="chip">Embedded Systems</span>
+        <span class="chip">DSP</span>
+        <span class="chip">MOKE Magnetometry</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#research" class="btn btn-outline">Research</a>
+        <a href="https://github.com/JohnLamLogic" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+    <div id="tag-sphere">
+      <div class="sphere-wrap" id="sphereWrap"></div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── About ── -->
+  <section id="about">
+    <div class="section-label">01 // about</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a Computer Hardware Engineering student with a deep focus on <strong>digital hardware
+            design</strong> and <strong>semiconductor research</strong>. My work spans from RTL design in Verilog and
+          VHDL on real FPGA boards, to hands-on lab research involving optical magnetometry and true random number
+          generation.
+        </p>
+        <p>
+          At the <strong>NanoMagnetoElectronics Lab</strong>, I design and operate an automated MOKE (Magneto-Optical
+          Kerr Effect)
+          measurement system, interfacing an SR865A lock-in amplifier with FPGA hardware over RS-232/PyVISA to
+          characterize magnetic thin
+          films. My senior design project — <strong>ARIS</strong> (Authenticated Randomness Infrastructure Service) —
+          leverages this research to build a cryptographically auditable TRNG.
+        </p>
+        <p>
+          I'm also active in <strong>AI evaluation research</strong>, running structured benchmarks across Claude,
+          ChatGPT, and Gemini to assess generative model performance on escalating hardware-engineering task complexity.
+        </p>
+        <p>
+          Outside of research: <strong>IEEE Student Member</strong> · Quantum Computing Learning Group · Hackathon
+          Organizer &amp; Planner ·
+        </p>
+      </div>
+      <div>
+        <ul class="info-list">
+          <li><span class="label">Degree</span><span class="value">B.S. Computer Hardware Engineering</span></li>
+          <li><span class="label">School</span><span class="value">University of Miami</span></li>
+          <li><span class="label">Focus</span><span class="value">FPGA Design &amp; Semiconductor Research</span></li>
+          <li><span class="label">Lab</span><span class="value">NanoMagnetoElectronics Lab</span></li>
+          <li><span class="label">Honors</span><span class="value">Dean's List F'23–S'25 · Presidential Honor
+              S'25–F'25</span></li>
+          <li><span class="label">Email</span><span class="value"><a
+                href="mailto:JohnathonRLamoreaux@gmail.com">JohnathonRLamoreaux@gmail.com</a></span></li>
+          <li><span class="label">LinkedIn</span><span class="value"><a href="https://linkedin.com/in/johnlam12"
+                target="_blank">linkedin.com/in/johnlam12</a></span></li>
+          <li><span class="label">GitHub</span><span class="value"><a href="https://github.com/JohnLamLogic"
+                target="_blank">JohnLamLogic</a></span></li>
+          <li><span class="label">Location</span><span class="value">Miami, FL</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Skills ── -->
+  <section id="skills">
+    <div class="section-label">02 // skills</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>HDL / FPGA</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">VHDL</span>
+          <span class="skill-tag">Verilog</span>
+          <span class="skill-tag">Quartus Prime</span>
+          <span class="skill-tag">Vivado</span>
+          <span class="skill-tag">DE1-SoC</span>
+          <span class="skill-tag">Nexys 4 DDR</span>
+          <span class="skill-tag">ModelSim</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">ARM Assembly</span>
+          <span class="skill-tag">VHDL</span>
+          <span class="skill-tag">Verilog</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Semiconductor / Lab</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">MOKE Magnetometry</span>
+          <span class="skill-tag">SR865A Lock-In Amplifier</span>
+          <span class="skill-tag">Balanced Photodetectors</span>
+          <span class="skill-tag">He-Ne Laser Optics</span>
+          <span class="skill-tag">PyVISA</span>
+          <span class="skill-tag">SMA Fiber Alignment</span>
+          <span class="skill-tag">Altium Designer</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Digital Design</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">FSM Design</span>
+          <span class="skill-tag">ALU / Datapath</span>
+          <span class="skill-tag">Memory-Mapped I/O</span>
+          <span class="skill-tag">VGA Controller</span>
+          <span class="skill-tag">DSP Filters</span>
+          <span class="skill-tag">Timing Analysis</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Software / Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Visual Studio</span>
+          <span class="skill-tag">Microsoft SQL Server</span>
+          <span class="skill-tag">Valgrind</span>
+          <span class="skill-tag">GDB</span>
+          <span class="skill-tag">Agile / CI-CD</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <h3>Concepts</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">TRNG / Cryptography</span>
+          <span class="skill-tag">NIST Test Suite</span>
+          <span class="skill-tag">RTL Verification</span>
+          <span class="skill-tag">Power Analysis</span>
+          <span class="skill-tag">DTMF</span>
+          <span class="skill-tag">AI Evaluation</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Research ── -->
+  <section id="research">
+    <div class="section-label">03 // research</div>
+    <h2 class="section-title">Research</h2>
+
+    <div class="research-card">
+      <h3>ARIS — Authenticated Randomness Infrastructure Service</h3>
+      <div class="research-sub">Senior Design · University of Miami NanoMagnetoElectronics Lab · Ongoing</div>
+      <p>
+        ARIS is a hardware-based True Random Number Generator (TRNG) that derives entropy from Magneto-Optical Kerr
+        Effect (MOKE) hysteresis measurements of magnetic thin-film samples. The system integrates a Stanford Research
+        SR865A dual-phase lock-in amplifier with FPGA processing to produce cryptographically auditable random
+        bitstreams.
+      </p>
+      <ul class="research-bullets">
+        <li>Designed and automated a MOKE measurement system using LabVIEW, SR865A lock-in amplifier at 255 Hz chopper
+          reference, and SMA fiber-optic alignment — improving sample throughput ~6× over prior manual workflow</li>
+        <li>Debugged AC/DC overload conditions in the lock-in amplifier chain caused by stray reflections at
+          fiber-sample interface</li>
+        <li>Architected FPGA pipeline to sample lock-in output, apply NIST SP 800-22 statistical validation, and stream
+          entropy to host</li>
+        <li>Built cryptographic audit trail to verify randomness source provenance for downstream applications</li>
+        <li>Validated against NIST test suite: frequency, block frequency, runs, longest run, spectral DFT, and serial
+          tests</li>
+      </ul>
+    </div>
+
+    <div class="research-card" style="border-left-color:var(--accent2);">
+      <h3>Benchmark_AI — Generative AI Evaluation for Hardware Engineering</h3>
+      <div class="research-sub" style="color:var(--accent2);">Ongoing Collaborative Research · 2025–Present</div>
+      <p>
+        A structured 4-stage benchmarking study evaluating Claude, ChatGPT, and Gemini on hardware engineering tasks of
+        escalating complexity — from basic RTL generation to multi-module FPGA system design. Evaluation is manual,
+        assessing correctness, code structure, and integration quality.
+      </p>
+      <ul class="research-bullets">
+        <li>3 platforms evaluated: Anthropic Claude, OpenAI ChatGPT, Google Gemini</li>
+        <li>4-stage study structure with tasks escalating from logic gate instantiation to pipelined datapath generation
+        </li>
+        <li>Manual evaluation rubric covering synthesizability, timing correctness, and testbench compatibility</li>
+        <li>Ongoing — results and methodology documented in <a href="https://github.com/JohnLamLogic/Benchmark_AI"
+            target="_blank">GitHub repo</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Projects ── -->
+  <section id="projects">
+    <div class="section-label">04 // projects</div>
+    <h2 class="section-title">Projects</h2>
+
+    <!-- Hardware -->
+    <h3
+      style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:1.25rem; font-family:var(--mono);">
+      Hardware &amp; FPGA</h3>
+    <div class="projects-grid" style="margin-bottom:2.5rem;">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">VHDL Etch-A-Sketch</div>
+          <span class="project-type type-hw">FPGA</span>
+        </div>
+        <p class="project-desc">
+          Full VGA display system on DE1-SoC FPGA rendering a real-time drawing application at 1280×1024 @ 60 Hz.
+          Implements a 3-state FSM (IDLE→READ→WRITE) with dual-port block RAM frame buffer and read-modify-write memory
+          operations for glitch-free cursor rendering.
+        </p>
+        <div class="project-specs">
+          <div>Board: DE1-SoC (Cyclone V)</div>
+          <div>Resolution: 1280×1024 @ 60 Hz</div>
+          <div>Pixel clock: 108 MHz (PLL-generated)</div>
+          <div>Frame buffer: ~164 KB (1-bit/pixel)</div>
+          <div>FSM: IDLE → READ → WRITE</div>
+        </div>
+        <div class="project-tags">
+          <span class="chip">VHDL</span><span class="chip">DE1-SoC</span><span class="chip">VGA</span><span
+            class="chip">Block RAM</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic/Etech-A-Sketch" target="_blank" class="project-link">View on GitHub
+            →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">4-Bit Adder / Subtractor</div>
+          <span class="project-type type-hw">Verilog</span>
+        </div>
+        <p class="project-desc">
+          Ripple-carry adder/subtractor implemented in Verilog on the Nexys 4 DDR Artix-7 board with 7-segment display
+          output, overflow detection, and validated against all 256 input combinations. Power report generated from
+          Vivado.
+        </p>
+        <div class="project-specs">
+          <div>Board: Nexys 4 DDR (Artix-7)</div>
+          <div>Dynamic power: 0.090 W</div>
+          <div>Static power: 0.097 W</div>
+          <div>Total power: 0.187 W</div>
+          <div>Tested: 256 input combinations</div>
+        </div>
+        <div class="project-tags">
+          <span class="chip">Verilog</span><span class="chip">Artix-7</span><span class="chip">Vivado</span><span
+            class="chip">7-seg</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">VHDL Barrel Shifter</div>
+          <span class="project-type type-hw">FPGA</span>
+        </div>
+        <p class="project-desc">
+          16-to-32-bit barrel shifter on the DE1 board with 8-bit signed control code, HI/LO reference bit selection,
+          and both sign-preserving and zero-fill shift modes. Implements ripple-carry structure with MUX-based selection
+          and tristate buffers.
+        </p>
+        <div class="project-specs">
+          <div>Board: DE1 (Cyclone II)</div>
+          <div>Shift width: 16 → 32-bit output</div>
+          <div>Control: 8-bit signed code</div>
+          <div>Modes: sign-preserve / zero-fill</div>
+          <div>Latency: single clock cycle</div>
+        </div>
+        <div class="project-tags">
+          <span class="chip">VHDL</span><span class="chip">DE1</span><span class="chip">Quartus</span><span
+            class="chip">Tristate</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">BCD Display Driver</div>
+          <span class="project-type type-hw">VHDL</span>
+        </div>
+        <p class="project-desc">
+          8-bit binary to 2-digit BCD converter driving a dual 7-segment LED display (range 0–99) with overflow
+          detection logic. Pure combinational design implemented in VHDL.
+        </p>
+        <div class="project-tags">
+          <span class="chip">VHDL</span><span class="chip">BCD</span><span class="chip">7-seg LED</span><span
+            class="chip">Combinational</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">VHDL 8-bit Calculator</div>
+          <span class="project-type type-hw">FPGA</span>
+        </div>
+        <p class="project-desc">
+          8-bit arithmetic calculator implemented in VHDL supporting add, subtract, multiply, and divide operations with
+          7-segment display I/O on FPGA hardware.
+        </p>
+        <div class="project-tags">
+          <span class="chip">VHDL</span><span class="chip">ALU</span><span class="chip">FPGA</span><span
+            class="chip">7-seg</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Digital Signal Processor</div>
+          <span class="project-type type-wip">In Progress</span>
+        </div>
+        <p class="project-desc">
+          Multi-project DSP series in VHDL. Project 1 complete: 7-segment hex display decoder (0–F, full behavioral case
+          map). Projects 2–6 target FIR filtering, FFT, and signal analysis pipelines — releasing through April 2026.
+        </p>
+        <div class="project-tags">
+          <span class="chip">VHDL</span><span class="chip">DSP</span><span class="chip">FIR</span><span class="chip">In
+            Progress</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic/DSP" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Software -->
+    <h3
+      style="font-size:0.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:2px; margin-bottom:1.25rem; font-family:var(--mono);">
+      Software</h3>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Custom Low-Level I/O Library</div>
+          <span class="project-type type-sw">C</span>
+        </div>
+        <p class="project-desc">
+          Complete buffered I/O layer (mio) built in C implementing <code
+            style="font-family:var(--mono);font-size:0.8rem;color:var(--code-color);">myopen / myread / mywrite / mygetc / mygets / mygetline / myflush / myclose</code>
+          with configurable buffer sizes, three stream modes, and global STDIN/STDOUT/STDERR wrappers. Zero memory leaks
+          verified with Valgrind. Includes a fully functional <code
+            style="font-family:var(--mono);font-size:0.8rem;color:var(--code-color);">./ls</code> implementation using
+          opendir/stat syscalls.
+        </p>
+        <div class="project-tags">
+          <span class="chip">C</span><span class="chip">Systems</span><span class="chip">POSIX</span><span
+            class="chip">Valgrind</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">RPN Calculator (BigInt)</div>
+          <span class="project-type type-sw">C++</span>
+        </div>
+        <p class="project-desc">
+          Reverse Polish Notation calculator in C++ with a custom arbitrary-precision integer class using a digit
+          vector. Supports full operator set including compound assignment and factorial, stream I/O, string
+          construction, and O(n) multiply. Tested on 20+ digit operands.
+        </p>
+        <div class="project-tags">
+          <span class="chip">C++</span><span class="chip">BigInt</span><span class="chip">RPN</span><span
+            class="chip">OOP</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic/BigIntCalc" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">DTMF Signal Generator</div>
+          <span class="project-type type-sw">MATLAB</span>
+        </div>
+        <p class="project-desc">
+          Dual-Tone Multi-Frequency signal generator in MATLAB producing standard telephone keypad tones by summing row
+          and column frequency sinusoids, with spectral analysis and audio output.
+        </p>
+        <div class="project-tags">
+          <span class="chip">MATLAB</span><span class="chip">DSP</span><span class="chip">Signal Gen</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">AI Nim Player</div>
+          <span class="project-type type-sw">Python</span>
+        </div>
+        <p class="project-desc">
+          Python implementation of the Nim game with an AI opponent using optimal strategy (Sprague-Grundy / Nim-sum
+          theory). AI plays perfect strategy; human player can choose pile and remove count each turn.
+        </p>
+        <div class="project-tags">
+          <span class="chip">Python</span><span class="chip">AI</span><span class="chip">Game Theory</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">Route Mapping</div>
+          <span class="project-type type-sw">C++</span>
+        </div>
+        <p class="project-desc">
+          C++ route mapping application implementing graph traversal algorithms for pathfinding. Reads map data, builds
+          adjacency structures, and outputs optimal routes.
+        </p>
+        <div class="project-tags">
+          <span class="chip">C++</span><span class="chip">Graph</span><span class="chip">Pathfinding</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">N-Queens Solver</div>
+          <span class="project-type type-sw">Python</span>
+        </div>
+        <p class="project-desc">
+          Backtracking solution to the N-Queens constraint satisfaction problem in Python. Finds all valid queen
+          placements on an N×N board with configurable board size and solution display.
+        </p>
+        <div class="project-tags">
+          <span class="chip">Python</span><span class="chip">Backtracking</span><span class="chip">CSP</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/JohnLamLogic" target="_blank" class="project-link">View on GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Experience ── -->
+  <section id="experience">
+    <div class="section-label">05 // experience</div>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Embedded Systems Research Assistant — NanoMagnetoElectronics Lab</div>
+          <div class="exp-company">University of Miami</div>
+        </div>
+        <div class="exp-date">Aug 2025 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed embedded data acquisition system interfacing SR865A lock-in amplifier over RS-232 via PyVISA;
+          extended entropy capture throughput from ~640 to 4,000+ samples/session (~6× gain) for FPGA-based MOKE optical
+          pipeline</li>
+        <li>Synchronized I²C, SPI, UART, and RS-232 across SR865A, balanced photodetectors, and FPGA; diagnosed and
+          resolved AC/DC overload, SMA fiber-optic misalignment, and 255 Hz chopper reference drift</li>
+        <li>Implemented Von Neumann debiasing and NIST SP 800-22 statistical test suite (15 tests); validated entropy
+          stream quality at p &gt; 0.01 across all tests with zero integrity failures</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">AI Benchmarking Research Assistant</div>
+          <div class="exp-company">University of Miami</div>
+        </div>
+        <div class="exp-date">Jan 2026 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Collaboratively designed and executed a 4-stage structured benchmarking study evaluating AI-assisted
+          development workflows across 3 LLM platforms (Claude, ChatGPT, Gemini); stages escalate from isolated
+          component generation to full-stack application builds</li>
+        <li>Manually evaluated output quality across all stages per platform — assessing functional correctness, code
+          structure, and system integration; documented comparative findings to identify platform-specific capability
+          gaps in engineering workflows</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Teaching Assistant — ECE Department</div>
+          <div class="exp-company">University of Miami</div>
+        </div>
+        <div class="exp-date">Aug 2024 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Conducted 200+ individual code reviews for 100+ students in embedded C/C++ and digital logic (Verilog/VHDL);
+          diagnosed hardware-software integration bugs using oscilloscopes and logic analyzers, raising average project
+          completion rate by ~20%</li>
+        <li>Led weekly lab sessions on memory-mapped I/O, FSM implementation, and digital timing analysis; authored
+          reference materials adopted across 3 successive course sections</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Implementation Consultant Intern</div>
+          <div class="exp-company">Fast Enterprises — Philadelphia, PA</div>
+        </div>
+        <div class="exp-date">May – Aug 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Optimized 15+ production SQL queries on a C# tax-processing platform serving the City of Philadelphia,
+          reducing average report generation time from ~8s to ~5s (~40% latency reduction)</li>
+        <li>Resolved 20+ critical C# defects in live production, eliminating all assigned client escalations; executed
+          100+ regression test plans with zero post-deployment failures across 15+ feature rollouts</li>
+        <li>Built backend policy logic in OOP C# and dynamic SQL, delivering 15+ client features including
+          multi-jurisdiction tax rule engines and automated audit trail generation</li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Education ── -->
+  <section id="education">
+    <div class="section-label">06 // education</div>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">B.S. Computer Hardware Engineering</div>
+        <div class="edu-school">University of Miami</div>
+        <div class="edu-detail">Miami, FL · Expected May 2026</div>
+        <div class="edu-detail" style="margin-top:0.4rem; color:var(--accent); font-size:0.8rem;">
+          Provost &amp; Dean's List Fall '23 – Spring '25 · Presidential Honor Spring '25 – Fall '25
+        </div>
+        <div class="edu-detail" style="margin-top:0.4rem; color:var(--muted); font-size:0.8rem;">
+          Coursework: Microcontroller Interfacing, Embedded Systems, Computer Organization &amp; Design, Processors:
+          HW/SW Interfacing, Structured Digital Design, Solid State Electronics I &amp; II, Algorithms
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div class="edu-gpa">3.88</div>
+        <div class="edu-gpa-label">GPA</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ── Contact ── -->
+  <section id="contact">
+    <div class="section-label">07 // contact</div>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-grid">
+      <a href="mailto:JohnathonRLamoreaux@gmail.com" class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">JohnathonRLamoreaux@gmail.com</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/johnlam12" target="_blank" class="contact-item">
+        <div class="contact-icon">in</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-value">linkedin.com/in/johnlam12</div>
+        </div>
+      </a>
+      <a href="https://github.com/JohnLamLogic" target="_blank" class="contact-item">
+        <div class="contact-icon">⌥</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">JohnLamLogic</div>
+        </div>
+      </a>
+      <a href="tel:3057427386" class="contact-item">
+        <div class="contact-icon">☎</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">(305) 742-7386</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Location</div>
+          <div class="contact-value">Miami, FL</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>John L'Amoreaux</span> · Built with HTML/CSS · Hosted on GitHub Pages · <span>johnlam.tech</span>
+  </footer>
+
+  <script>
+    (function () {
+      /* ── Theme toggle ── */
+      const html = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const icon = document.getElementById('toggleIcon');
+      const label = document.getElementById('toggleLabel');
+
+      const saved = localStorage.getItem('theme');
+      const theme = saved || 'dark';
+      html.setAttribute('data-theme', theme);
+      updateBtn(theme);
+
+      btn.addEventListener('click', function () {
+        const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+        updateBtn(next);
+      });
+
+      function updateBtn(t) {
+        icon.textContent = t === 'dark' ? '☀' : '☾';
+        label.textContent = t === 'dark' ? 'Light' : 'Dark';
+      }
+
+      /* ── Scroll progress bar ── */
+      const bar = document.getElementById('progress-bar');
+      window.addEventListener('scroll', function () {
+        const scrolled = window.scrollY;
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+      }, { passive: true });
+
+      /* ── Typing animation on hero tag ── */
+      const heroTag = document.getElementById('heroTag');
+      const tagText = '// hardware & embedded systems engineer';
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      let i = 0;
+      heroTag.textContent = '';
+      heroTag.appendChild(cursor);
+
+      function type() {
+        if (i < tagText.length) {
+          heroTag.insertBefore(document.createTextNode(tagText[i]), cursor);
+          i++;
+          setTimeout(type, 38 + Math.random() * 22);
+        }
+      }
+      setTimeout(type, 400);
+
+      /* ── Active nav link on scroll ── */
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-links a');
+
+      const navObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            navLinks.forEach(function (a) {
+              a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+
+      sections.forEach(function (s) { navObserver.observe(s); });
+
+      /* ── Scroll-triggered fade-ins ── */
+      const fadeTargets = document.querySelectorAll(
+        '.project-card, .skill-card, .exp-card, .research-card, .edu-card, .contact-item, .about-grid, .hero-chips'
+      );
+      fadeTargets.forEach(function (el) { el.classList.add('fade-in'); });
+
+      const fadeObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeTargets.forEach(function (el) { fadeObserver.observe(el); });
+
+      /* ── 3D Tag Sphere ── */
+      (function () {
+        var tags = [
+          { text: 'ARIS / TRNG', href: '#research' },
+          { text: 'Etch-A-Sketch', href: '#projects' },
+          { text: 'DSP', href: '#projects' },
+          { text: '4-bit ALU', href: '#projects' },
+          { text: 'Barrel Shifter', href: '#projects' },
+          { text: 'BCD Driver', href: '#projects' },
+          { text: 'VHDL Calc', href: '#projects' },
+          { text: 'BigInt RPN', href: '#projects' },
+          { text: 'Low-Level I/O', href: '#projects' },
+          { text: 'Route Mapping', href: '#projects' },
+          { text: 'AI Nim Player', href: '#projects' },
+          { text: 'N-Queens', href: '#projects' },
+          { text: 'DTMF Gen', href: '#projects' },
+          { text: 'Benchmark_AI', href: '#research' },
+          { text: 'MOKE Magnetometry', href: '#research' },
+          { text: 'FPGA Design', href: '#skills' },
+          { text: 'Verilog', href: '#skills' },
+          { text: 'VHDL', href: '#skills' },
+          { text: 'Semiconductor', href: '#about' },
+          { text: 'Senior Design', href: '#research' },
+        ];
+
+        var wrap = document.getElementById('sphereWrap');
+        var sphere = document.getElementById('tag-sphere');
+        var n = tags.length;
+        var golden = Math.PI * (3 - Math.sqrt(5));
+
+        // Build elements + store unit-sphere coords
+        var items = tags.map(function (tag, i) {
+          var yNorm = 1 - (i / (n - 1)) * 2;
+          var rSlice = Math.sqrt(1 - yNorm * yNorm);
+          var theta = golden * i;
+          var el = document.createElement('a');
+          el.className = 's-tag';
+          el.textContent = tag.text;
+          el.href = tag.href;
+          wrap.appendChild(el);
+          return { el: el, ox: Math.cos(theta) * rSlice, oy: yNorm, oz: Math.sin(theta) * rSlice };
+        });
+
+        // Rotation state
+        var rotX = 0.25, rotY = 0;
+        var vx = 0, vy = 0.0025;
+        var dragging = false, lastMX = 0, lastMY = 0;
+
+        function getR() {
+          return sphere.offsetWidth * 0.44;
+        }
+
+        // Mouse drag
+        sphere.addEventListener('mousedown', function (e) {
+          dragging = true; lastMX = e.clientX; lastMY = e.clientY; vx = 0; vy = 0;
+          e.preventDefault();
+        });
+        window.addEventListener('mousemove', function (e) {
+          if (!dragging) return;
+          vy += (e.clientX - lastMX) * 0.004;
+          vx += (e.clientY - lastMY) * 0.004;
+          lastMX = e.clientX; lastMY = e.clientY;
+        });
+        window.addEventListener('mouseup', function () { dragging = false; });
+
+        // Touch drag
+        sphere.addEventListener('touchstart', function (e) {
+          dragging = true;
+          lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
+          vx = 0; vy = 0;
+        }, { passive: true });
+        window.addEventListener('touchmove', function (e) {
+          if (!dragging) return;
+          vy += (e.touches[0].clientX - lastMX) * 0.004;
+          vx += (e.touches[0].clientY - lastMY) * 0.004;
+          lastMX = e.touches[0].clientX; lastMY = e.touches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchend', function () { dragging = false; });
+
+        function rotatePoint(x, y, z, rx, ry) {
+          var cx = Math.cos(rx), sx = Math.sin(rx);
+          var y1 = y * cx - z * sx, z1 = y * sx + z * cx;
+          var cy = Math.cos(ry), sy = Math.sin(ry);
+          var x1 = x * cy + z1 * sy, z2 = -x * sy + z1 * cy;
+          return { x: x1, y: y1, z: z2 };
+        }
+
+        function render() {
+          if (!dragging) {
+            rotY += vy; rotX += vx;
+            vy *= 0.995; vx *= 0.97;
+            if (Math.abs(vy) < 0.0025) vy = 0.0025; // keep slow spin
+          }
+          var R = getR();
+          var isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+
+          items.forEach(function (item) {
+            var p = rotatePoint(item.ox, item.oy, item.oz, rotX, rotY);
+            var depth = (p.z + 1) / 2; // 0 (back) → 1 (front)
+            var scale = 0.5 + depth * 0.65;
+            var tx = p.x * R, ty = p.y * R;
+
+            item.el.style.transform = 'translate(calc(' + tx + 'px - 50%), calc(' + ty + 'px - 50%)) scale(' + scale + ')';
+            item.el.style.zIndex = Math.round(depth * 100);
+            item.el.style.opacity = 0.2 + depth * 0.8;
+
+            if (isDark) {
+              item.el.style.color = depth > 0.55 ? '#c8d8f0' : '#38bdf8';
+              item.el.style.borderColor = depth > 0.55 ? '#1e3a5a' : '#0d2235';
+              item.el.style.background = 'rgba(13,34,53,' + (0.5 + depth * 0.4) + ')';
+            } else {
+              item.el.style.color = depth > 0.55 ? '#18243a' : '#005fa3';
+              item.el.style.borderColor = depth > 0.55 ? '#aac6f0' : '#ddf0ff';
+              item.el.style.background = 'rgba(221,240,255,' + (0.5 + depth * 0.5) + ')';
+            }
+          });
+          requestAnimationFrame(render);
+        }
+        render();
+      })();
+
+      /* ── Particle background ── */
+      (function () {
+        var canvas = document.getElementById('bg-canvas');
+        var ctx = canvas.getContext('2d');
+        var W, H, particles;
+        var mouse = { x: -9999, y: -9999 };
+        var N = 65, MAX_DIST = 130, REPEL_DIST = 100, REPEL_FORCE = 0.4;
+
+        function resize() {
+          W = canvas.width = window.innerWidth;
+          H = canvas.height = window.innerHeight;
+        }
+
+        function mkParticle() {
+          var angle = Math.random() * Math.PI * 2;
+          var speed = 0.15 + Math.random() * 0.25;
+          return {
+            x: Math.random() * W, y: Math.random() * H,
+            vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+            r: 1.5 + Math.random() * 1.2
+          };
+        }
+
+        function init() { resize(); particles = []; for (var i = 0; i < N; i++) particles.push(mkParticle()); }
+
+        function isDark() { return document.documentElement.getAttribute('data-theme') !== 'light'; }
+
+        function loop() {
+          ctx.clearRect(0, 0, W, H);
+          var dark = isDark();
+          var dotC = dark ? 'rgba(0,200,160,' : 'rgba(0,149,122,';
+          var lineC = dark ? 'rgba(0,136,204,' : 'rgba(0,107,181,';
+
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            var dx = p.x - mouse.x, dy = p.y - mouse.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < REPEL_DIST && dist > 0) {
+              var force = (REPEL_DIST - dist) / REPEL_DIST * REPEL_FORCE;
+              p.vx += (dx / dist) * force;
+              p.vy += (dy / dist) * force;
+            }
+            p.vx *= 0.995; p.vy *= 0.995;
+            var spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+            if (spd < 0.12) { p.vx = p.vx / spd * 0.12; p.vy = p.vy / spd * 0.12; }
+            if (spd > 0.8) { p.vx = p.vx / spd * 0.8; p.vy = p.vy / spd * 0.8; }
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < -5) p.x = W + 5; if (p.x > W + 5) p.x = -5;
+            if (p.y < -5) p.y = H + 5; if (p.y > H + 5) p.y = -5;
+          }
+
+          for (var i = 0; i < particles.length; i++) {
+            for (var j = i + 1; j < particles.length; j++) {
+              var dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
+              var d = Math.sqrt(dx * dx + dy * dy);
+              if (d < MAX_DIST) {
+                ctx.strokeStyle = lineC + ((1 - d / MAX_DIST) * 0.18) + ')';
+                ctx.lineWidth = 0.6;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+              }
+            }
+          }
+
+          for (var i = 0; i < particles.length; i++) {
+            var p = particles[i];
+            ctx.fillStyle = dotC + '0.5)';
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          requestAnimationFrame(loop);
+        }
+
+        window.addEventListener('resize', resize, { passive: true });
+        window.addEventListener('mousemove', function (e) { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
+        window.addEventListener('mouseleave', function () { mouse.x = -9999; mouse.y = -9999; });
+        init();
+        loop();
+      })();
+
+    })();
+  </script>
+</body>
+
+</html>

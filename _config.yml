@@ -1,0 +1,24 @@
+title: "John L'Amoreaux | Hardware & Embedded Systems Engineer"
+description: "Portfolio of John L'Amoreaux — FPGA design, semiconductor research, embedded systems, and low-level software engineering."
+url: "https://johnlam.tech"
+baseurl: ""
+author: "John L'Amoreaux"
+email: "JohnathonRLamoreaux@gmail.com"
+github_username: JohnLamLogic
+
+# Build settings
+theme: null
+plugins: []
+
+# SEO
+keywords:
+  - FPGA
+  - VHDL
+  - Verilog
+  - embedded systems
+  - semiconductor
+  - hardware engineer
+  - FIU
+  - MOKE
+  - TRNG
+  - digital design
