@@ -1,5 +1,5 @@
-title: "John L'Amoreaux | Hardware & Embedded Systems Engineer"
-description: "Portfolio of John L'Amoreaux — FPGA design, semiconductor research, embedded systems, and low-level software engineering."
+title: "John L'Amoreaux | Photonics & Hardware Engineer"
+description: "Portfolio of John L'Amoreaux — M.Sc. Photonics student at the Abbe School of Photonics, Jena. Photonic integrated circuits, FPGA design, and embedded systems."
 url: "https://johnlam.tech"
 baseurl: ""
 author: "John L'Amoreaux"
@@ -12,13 +12,16 @@ plugins: []
 
 # SEO
 keywords:
+  - photonics
+  - photonic integrated circuits
+  - Abbe School of Photonics
+  - Jena
   - FPGA
   - VHDL
   - Verilog
   - embedded systems
   - semiconductor
   - hardware engineer
-  - FIU
   - MOKE
   - TRNG
   - digital design

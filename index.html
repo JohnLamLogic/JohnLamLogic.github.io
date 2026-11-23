@@ -13,11 +13,11 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>John L'Amoreaux | Hardware & Embedded Systems Engineer</title>
+  <title>John L'Amoreaux | Photonics & Hardware Engineer</title>
   <meta name="description"
-    content="Portfolio of John L'Amoreaux — FPGA design, semiconductor research, embedded systems, and software engineering." />
+    content="Portfolio of John L'Amoreaux — M.Sc. Photonics student at the Abbe School of Photonics, Jena. Photonic integrated circuits, FPGA design, and embedded systems." />
   <meta name="keywords"
-    content="FPGA, Verilog, VHDL, embedded systems, semiconductor, hardware engineer, portfolio, John Lamoreaux" />
+    content="photonics, photonic integrated circuits, PIC, Abbe School of Photonics, Jena, FPGA, Verilog, VHDL, embedded systems, semiconductor, hardware engineer, portfolio, John Lamoreaux" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -139,6 +139,12 @@
       display: flex;
       align-items: center;
       gap: 2rem;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
     }
 
     .nav-logo {
@@ -557,6 +563,22 @@
 
     .project-footer {
       margin-top: auto;
+    }
+
+    .project-pending {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .research-docs {
+      margin-top: 1.1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
     .project-link {
@@ -1054,10 +1076,16 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-      <span class="toggle-icon" id="toggleIcon">☀</span>
-      <span class="toggle-label" id="toggleLabel">Light</span>
-    </button>
+    <div class="nav-right">
+      <button class="theme-toggle" id="langToggle" aria-label="Switch language / Sprache wechseln">
+        <span class="toggle-icon">🌐</span>
+        <span class="toggle-label" id="langLabel">DE</span>
+      </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-icon" id="toggleIcon">☀</span>
+        <span class="toggle-label" id="toggleLabel">Light</span>
+      </button>
+    </div>
   </nav>
 
   <!-- ── Hero ── -->
@@ -1066,18 +1094,19 @@
       <div class="hero-tag" id="heroTag"></div>
       <h1 class="hero-name">John<br><span>L'Amoreaux</span></h1>
       <p class="hero-sub">
-        Computer Hardware Engineering student at the University of Miami focused on FPGA design, semiconductor research,
-        and low-level systems engineering.
-        <br><span class="status-dot"></span>Currently conducting TRNG research at the NanoMagnetoElectronics Lab.
+        M.Sc. Photonics student at the Abbe School of Photonics, Friedrich Schiller University Jena, with a background in
+        computer hardware engineering — FPGA design, embedded systems, and optical instrumentation.
+        <br><span class="status-dot"></span>Currently in Jena, Germany, working toward photonic integrated circuits for AI hardware.
       </p>
       <div class="hero-chips">
+        <span class="chip">Photonics</span>
+        <span class="chip">Photonic Integrated Circuits</span>
         <span class="chip">VHDL</span>
         <span class="chip">Verilog</span>
         <span class="chip">FPGA</span>
         <span class="chip">Semiconductor</span>
         <span class="chip">C / C++</span>
         <span class="chip">Embedded Systems</span>
-        <span class="chip">DSP</span>
         <span class="chip">MOKE Magnetometry</span>
       </div>
       <div class="hero-cta">
@@ -1100,43 +1129,43 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a Computer Hardware Engineering student with a deep focus on <strong>digital hardware
-            design</strong> and <strong>semiconductor research</strong>. My work spans from RTL design in Verilog and
-          VHDL on real FPGA boards, to hands-on lab research involving optical magnetometry and true random number
-          generation.
+          I'm an M.Sc. Photonics student at the <strong>Abbe School of Photonics</strong> in Jena, Germany, with a
+          B.S. in Computer Hardware Engineering from the University of Miami, where I graduated <strong>ranked #1</strong>
+          in my class. My work spans RTL design in Verilog and VHDL on real FPGA boards through to optical
+          instrumentation, magnetometry, and true random number generation.
         </p>
         <p>
-          At the <strong>NanoMagnetoElectronics Lab</strong>, I design and operate an automated MOKE (Magneto-Optical
-          Kerr Effect)
-          measurement system, interfacing an SR865A lock-in amplifier with FPGA hardware over RS-232/PyVISA to
-          characterize magnetic thin
-          films. My senior design project — <strong>ARIS</strong> (Authenticated Randomness Infrastructure Service) —
-          leverages this research to build a cryptographically auditable TRNG.
+          At the <strong>NanoMagnetoElectronics Lab</strong> I designed and operated an automated MOKE (Magneto-Optical
+          Kerr Effect) measurement system, interfacing an SR865A lock-in amplifier with FPGA hardware over RS-232/PyVISA
+          to characterize magnetic thin films. My senior design project — <strong>ARIS</strong> (Authenticated Randomness
+          Infrastructure Service) — built a cryptographically auditable TRNG on top of that work.
         </p>
         <p>
-          I'm also active in <strong>AI evaluation research</strong>, running structured benchmarks across Claude,
-          ChatGPT, and Gemini to assess generative model performance on escalating hardware-engineering task complexity.
+          My focus now is <strong>photonic integrated circuits</strong> — optical interconnects and photonic
+          architectures for AI acceleration — supported by a <strong>Deutschlandstipendium</strong> scholarship sponsored
+          by ams OSRAM. I have also run structured <strong>AI evaluation research</strong>, benchmarking Claude, ChatGPT,
+          and Gemini on hardware-engineering tasks of escalating complexity.
         </p>
         <p>
           Outside of research: <strong>IEEE Student Member</strong> · Quantum Computing Learning Group · Hackathon
-          Organizer &amp; Planner ·
+          Organizer &amp; Planner · VEX IQ Robotics Mentor &amp; Tournament Judge
         </p>
       </div>
       <div>
         <ul class="info-list">
-          <li><span class="label">Degree</span><span class="value">B.S. Computer Hardware Engineering</span></li>
-          <li><span class="label">School</span><span class="value">University of Miami</span></li>
-          <li><span class="label">Focus</span><span class="value">FPGA Design &amp; Semiconductor Research</span></li>
-          <li><span class="label">Lab</span><span class="value">NanoMagnetoElectronics Lab</span></li>
-          <li><span class="label">Honors</span><span class="value">Dean's List F'23–S'25 · Presidential Honor
-              S'25–F'25</span></li>
+          <li><span class="label">Degree</span><span class="value">M.Sc. Photonics (in progress)</span></li>
+          <li><span class="label">School</span><span class="value">Abbe School of Photonics, FSU Jena</span></li>
+          <li><span class="label">Previously</span><span class="value">B.S. Computer Hardware Engineering, University of Miami</span></li>
+          <li><span class="label">Focus</span><span class="value">Photonic Integrated Circuits &amp; FPGA Design</span></li>
+          <li><span class="label">Honors</span><span class="value">Deutschlandstipendium · Tau Beta Pi · Rank #1 in Computer Engineering</span></li>
+          <li><span class="label">Languages</span><span class="value">English (native) · German (A1)</span></li>
           <li><span class="label">Email</span><span class="value"><a
                 href="mailto:JohnathonRLamoreaux@gmail.com">JohnathonRLamoreaux@gmail.com</a></span></li>
           <li><span class="label">LinkedIn</span><span class="value"><a href="https://linkedin.com/in/johnlam12"
                 target="_blank">linkedin.com/in/johnlam12</a></span></li>
           <li><span class="label">GitHub</span><span class="value"><a href="https://github.com/JohnLamLogic"
                 target="_blank">JohnLamLogic</a></span></li>
-          <li><span class="label">Location</span><span class="value">Miami, FL</span></li>
+          <li><span class="label">Location</span><span class="value">Jena, Germany</span></li>
         </ul>
       </div>
     </div>
@@ -1150,6 +1179,18 @@
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill-card">
+        <h3>Photonics / Optics</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Photonic Integrated Circuits</span>
+          <span class="skill-tag">Free-Space Optical Alignment</span>
+          <span class="skill-tag">He-Ne Laser Optics</span>
+          <span class="skill-tag">MOKE Magnetometry</span>
+          <span class="skill-tag">Balanced Photodetection</span>
+          <span class="skill-tag">Lock-In Detection</span>
+          <span class="skill-tag">Optical Signal Processing</span>
+        </div>
+      </div>
+      <div class="skill-card">
         <h3>HDL / FPGA</h3>
         <div class="skill-tags">
           <span class="skill-tag">VHDL</span>
@@ -1162,7 +1203,7 @@
         </div>
       </div>
       <div class="skill-card">
-        <h3>Languages</h3>
+        <h3>Programming Languages</h3>
         <div class="skill-tags">
           <span class="skill-tag">C</span>
           <span class="skill-tag">C++</span>
@@ -1182,7 +1223,6 @@
           <span class="skill-tag">Balanced Photodetectors</span>
           <span class="skill-tag">He-Ne Laser Optics</span>
           <span class="skill-tag">PyVISA</span>
-          <span class="skill-tag">SMA Fiber Alignment</span>
           <span class="skill-tag">Altium Designer</span>
         </div>
       </div>
@@ -1231,7 +1271,7 @@
 
     <div class="research-card">
       <h3>ARIS — Authenticated Randomness Infrastructure Service</h3>
-      <div class="research-sub">Senior Design · University of Miami NanoMagnetoElectronics Lab · Ongoing</div>
+      <div class="research-sub">Senior Design · University of Miami NanoMagnetoElectronics Lab · Completed May 2026</div>
       <p>
         ARIS is a hardware-based True Random Number Generator (TRNG) that derives entropy from Magneto-Optical Kerr
         Effect (MOKE) hysteresis measurements of magnetic thin-film samples. The system integrates a Stanford Research
@@ -1240,20 +1280,28 @@
       </p>
       <ul class="research-bullets">
         <li>Designed and automated a MOKE measurement system using LabVIEW, SR865A lock-in amplifier at 255 Hz chopper
-          reference, and SMA fiber-optic alignment — improving sample throughput ~6× over prior manual workflow</li>
-        <li>Debugged AC/DC overload conditions in the lock-in amplifier chain caused by stray reflections at
-          fiber-sample interface</li>
+          reference, and free-space optical alignment — improving sample throughput ~6× over prior manual workflow</li>
+        <li>Debugged AC/DC overload conditions in the lock-in amplifier chain caused by stray reflections in the
+          optical path</li>
         <li>Architected FPGA pipeline to sample lock-in output, apply NIST SP 800-22 statistical validation, and stream
           entropy to host</li>
-        <li>Built cryptographic audit trail to verify randomness source provenance for downstream applications</li>
-        <li>Validated against NIST test suite: frequency, block frequency, runs, longest run, spectral DFT, and serial
-          tests</li>
+        <li>Von Neumann debiasing, SHA-256 expansion into 256-bit blocks, and Ed25519 signing; every accepted block is
+          appended to a hash-chained audit log — a tamper-evident chain of 11,151 blocks</li>
+        <li>All 15 NIST SP 800-22 tests pass on the combined 2.8-million-bit dataset; an independent verifier confirms
+          signature validity, chain integrity, and timestamp precedence from the public key alone</li>
+        <li>REST API serves entropy to three demonstrations: an authenticated blackjack game, a Monte Carlo portfolio
+          risk simulation, and a fair audit-sampling tool</li>
+        <li>Presented as &ldquo;Randomness as a Service&rdquo; at the University of Miami Senior Design Expo 2026</li>
       </ul>
+      <div class="research-docs">
+        <a href="assets/ARIS-Senior-Design-Final-Report.pdf" target="_blank" class="project-link">Read the final report (PDF) →</a>
+        <a href="assets/ARIS-source-code.zip" class="project-link">Download the source code (ZIP) →</a>
+      </div>
     </div>
 
     <div class="research-card" style="border-left-color:var(--accent2);">
       <h3>Benchmark_AI — Generative AI Evaluation for Hardware Engineering</h3>
-      <div class="research-sub" style="color:var(--accent2);">Ongoing Collaborative Research · 2025–Present</div>
+      <div class="research-sub" style="color:var(--accent2);">Collaborative Research · University of Miami · Jan – Apr 2026</div>
       <p>
         A structured 4-stage benchmarking study evaluating Claude, ChatGPT, and Gemini on hardware engineering tasks of
         escalating complexity — from basic RTL generation to multi-module FPGA system design. Evaluation is manual,
@@ -1264,8 +1312,8 @@
         <li>4-stage study structure with tasks escalating from logic gate instantiation to pipelined datapath generation
         </li>
         <li>Manual evaluation rubric covering synthesizability, timing correctness, and testbench compatibility</li>
-        <li>Ongoing — results and methodology documented in <a href="https://github.com/JohnLamLogic/Benchmark_AI"
-            target="_blank">GitHub repo</a></li>
+        <li>Presented at UM Computing Day and the Research, Creativity &amp; Innovation Forum (RCIF) 2026; results and
+          methodology documented in <a href="https://github.com/JohnLamLogic/Benchmark_AI" target="_blank">GitHub repo</a></li>
       </ul>
     </div>
   </section>
@@ -1401,18 +1449,41 @@
       <div class="project-card">
         <div class="project-header">
           <div class="project-name">Digital Signal Processor</div>
-          <span class="project-type type-wip">In Progress</span>
+          <span class="project-type type-hw">Complete</span>
         </div>
         <p class="project-desc">
-          Multi-project DSP series in VHDL. Project 1 complete: 7-segment hex display decoder (0–F, full behavioral case
-          map). Projects 2–6 target FIR filtering, FFT, and signal analysis pipelines — releasing through April 2026.
+          Multi-project DSP series in VHDL, now complete: 7-segment hex display decoder (0–F, full behavioral case map),
+          FIR filtering, FFT, and signal analysis pipelines. The repository stays private until January 2027 for
+          educational reasons, as the coursework is still in active use.
         </p>
         <div class="project-tags">
-          <span class="chip">VHDL</span><span class="chip">DSP</span><span class="chip">FIR</span><span class="chip">In
-            Progress</span>
+          <span class="chip">VHDL</span><span class="chip">DSP</span><span class="chip">FIR</span><span class="chip">FFT</span>
+        </div>
+
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-name">16-Bit RISC Processor</div>
+          <span class="project-type type-hw">Complete</span>
+        </div>
+        <p class="project-desc">
+          16-bit RISC processor designed in Verilog on the Nexys 4 Artix-7, with 16 general-purpose registers, separate
+          256-word RAM and ROM, and a 16-instruction MIPS-style ISA (ADD/SUB/AND/XOR/SHL/SHR/BIZ/JAL) on a two-cycle
+          execute. Block-level testbenches reach full instruction-path coverage with zero synthesis timing violations.
+        </p>
+        <div class="project-specs">
+          <div>Board: Nexys 4 DDR (Artix-7)</div>
+          <div>Registers: 16 general-purpose</div>
+          <div>Memory: 256-word RAM / 256-word ROM</div>
+          <div>ISA: 16 instructions, 2-cycle execute</div>
+          <div>Coverage: all instruction paths</div>
+        </div>
+        <div class="project-tags">
+          <span class="chip">Verilog</span><span class="chip">RISC</span><span class="chip">MIPS ISA</span><span class="chip">Nexys 4</span>
         </div>
         <div class="project-footer">
-          <a href="https://github.com/JohnLamLogic/DSP" target="_blank" class="project-link">View on GitHub →</a>
+          <span class="project-pending">Full source release pending</span>
         </div>
       </div>
 
@@ -1546,17 +1617,17 @@
     <div class="exp-card">
       <div class="exp-header">
         <div>
-          <div class="exp-title">Embedded Systems Research Assistant — NanoMagnetoElectronics Lab</div>
+          <div class="exp-title">Optical Instrumentation &amp; Embedded Research Assistant — NanoMagnetoElectronics Lab</div>
           <div class="exp-company">University of Miami</div>
         </div>
-        <div class="exp-date">Aug 2025 – Present</div>
+        <div class="exp-date">Aug 2025 – Apr 2026</div>
       </div>
       <ul class="exp-bullets">
         <li>Designed embedded data acquisition system interfacing SR865A lock-in amplifier over RS-232 via PyVISA;
           extended entropy capture throughput from ~640 to 4,000+ samples/session (~6× gain) for FPGA-based MOKE optical
           pipeline</li>
         <li>Synchronized I²C, SPI, UART, and RS-232 across SR865A, balanced photodetectors, and FPGA; diagnosed and
-          resolved AC/DC overload, SMA fiber-optic misalignment, and 255 Hz chopper reference drift</li>
+          resolved AC/DC overload and 255 Hz chopper reference drift</li>
         <li>Implemented Von Neumann debiasing and NIST SP 800-22 statistical test suite (15 tests); validated entropy
           stream quality at p &gt; 0.01 across all tests with zero integrity failures</li>
       </ul>
@@ -1568,15 +1639,15 @@
           <div class="exp-title">AI Benchmarking Research Assistant</div>
           <div class="exp-company">University of Miami</div>
         </div>
-        <div class="exp-date">Jan 2026 – Present</div>
+        <div class="exp-date">Jan – Apr 2026</div>
       </div>
       <ul class="exp-bullets">
         <li>Collaboratively designed and executed a 4-stage structured benchmarking study evaluating AI-assisted
           development workflows across 3 LLM platforms (Claude, ChatGPT, Gemini); stages escalate from isolated
           component generation to full-stack application builds</li>
-        <li>Manually evaluated output quality across all stages per platform — assessing functional correctness, code
-          structure, and system integration; documented comparative findings to identify platform-specific capability
-          gaps in engineering workflows</li>
+        <li>Evaluated output quality across all stages per platform — functional correctness, code structure, and system
+          integration — measuring prompt count, build time, and user satisfaction; presented findings at UM Computing Day
+          and the Research, Creativity &amp; Innovation Forum (RCIF) 2026</li>
       </ul>
     </div>
 
@@ -1586,7 +1657,7 @@
           <div class="exp-title">Teaching Assistant — ECE Department</div>
           <div class="exp-company">University of Miami</div>
         </div>
-        <div class="exp-date">Aug 2024 – Present</div>
+        <div class="exp-date">Aug 2024 – May 2026</div>
       </div>
       <ul class="exp-bullets">
         <li>Conducted 200+ individual code reviews for 100+ students in embedded C/C++ and digital logic (Verilog/VHDL);
@@ -1624,11 +1695,30 @@
     <h2 class="section-title">Education</h2>
     <div class="edu-card">
       <div>
+        <div class="edu-degree">M.Sc. Photonics</div>
+        <div class="edu-school">Abbe School of Photonics · Friedrich Schiller University Jena</div>
+        <div class="edu-detail">Jena, Germany · Oct 2026 – Jul 2028 (expected)</div>
+        <div class="edu-detail" style="margin-top:0.4rem; color:var(--accent); font-size:0.8rem;">
+          Deutschlandstipendium Scholar — sponsored by ams OSRAM / ams Sensors Germany GmbH
+        </div>
+        <div class="edu-detail" style="margin-top:0.4rem; color:var(--muted); font-size:0.8rem;">
+          Coursework: Fundamentals of Modern Optics, Structure of Matter, Introduction to Optical Modelling &amp;
+          Simulation, Experimental Optics Lab
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div class="edu-gpa">M.Sc.</div>
+        <div class="edu-gpa-label">In Progress</div>
+      </div>
+    </div>
+    <div class="edu-card">
+      <div>
         <div class="edu-degree">B.S. Computer Hardware Engineering</div>
         <div class="edu-school">University of Miami</div>
-        <div class="edu-detail">Miami, FL · Expected May 2026</div>
+        <div class="edu-detail">Miami, FL · Aug 2023 – May 2026 · Ranked #1 in Computer Engineering</div>
         <div class="edu-detail" style="margin-top:0.4rem; color:var(--accent); font-size:0.8rem;">
-          Provost &amp; Dean's List Fall '23 – Spring '25 · Presidential Honor Spring '25 – Fall '25
+          Tau Beta Pi · Outstanding Student in Computer Engineering · Provost &amp; Dean's List (6 semesters) ·
+          Presidential Honor Roll (2 semesters)
         </div>
         <div class="edu-detail" style="margin-top:0.4rem; color:var(--muted); font-size:0.8rem;">
           Coursework: Microcontroller Interfacing, Embedded Systems, Computer Organization &amp; Design, Processors:
@@ -1636,7 +1726,7 @@
         </div>
       </div>
       <div style="text-align:center;">
-        <div class="edu-gpa">3.88</div>
+        <div class="edu-gpa">3.89</div>
         <div class="edu-gpa-label">GPA</div>
       </div>
     </div>
@@ -1670,18 +1760,18 @@
           <div class="contact-value">JohnLamLogic</div>
         </div>
       </a>
-      <a href="tel:3057427386" class="contact-item">
+      <a href="tel:+491621048938" class="contact-item">
         <div class="contact-icon">☎</div>
         <div>
           <div class="contact-label">Phone</div>
-          <div class="contact-value">(305) 742-7386</div>
+          <div class="contact-value">+49 162 1048938</div>
         </div>
       </a>
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <div>
           <div class="contact-label">Location</div>
-          <div class="contact-value">Miami, FL</div>
+          <div class="contact-value">Jena, Germany</div>
         </div>
       </div>
     </div>
@@ -1690,6 +1780,285 @@
   <footer>
     <span>John L'Amoreaux</span> · Built with HTML/CSS · Hosted on GitHub Pages · <span>johnlam.tech</span>
   </footer>
+
+  <!-- ── Language switch (EN / DE) ── -->
+  <script>
+    (function () {
+      /* German strings. Keys are the English text (or its first ~60 characters);
+         values may contain HTML. Anything not listed stays in English. */
+      var DE = {
+        /* nav + section headings */
+        "About": "Über mich",
+        "Skills": "Kenntnisse",
+        "Research": "Forschung",
+        "Projects": "Projekte",
+        "Experience": "Erfahrung",
+        "Contact": "Kontakt",
+        "01 // about": "01 // über mich",
+        "02 // skills": "02 // kenntnisse",
+        "03 // research": "03 // forschung",
+        "04 // projects": "04 // projekte",
+        "05 // experience": "05 // erfahrung",
+        "06 // education": "06 // ausbildung",
+        "07 // contact": "07 // kontakt",
+        "About Me": "Über mich",
+        "Technical Skills": "Technische Kenntnisse",
+        "Education": "Ausbildung",
+        "Get In Touch": "Kontakt aufnehmen",
+        "View Projects": "Projekte ansehen",
+        "Hardware & FPGA": "Hardware & FPGA",
+        "Software": "Software",
+
+        /* hero */
+        "M.Sc. Photonics student at the Abbe School of Photonics, Friedr":
+          "M.Sc.-Student der Photonik an der Abbe School of Photonics, Friedrich-Schiller-Universität Jena, mit Hintergrund in Computer-Hardware-Engineering — FPGA-Design, eingebettete Systeme und optische Messtechnik.<br><span class=\"status-dot\"></span>Zurzeit in Jena, Deutschland, mit dem Ziel photonisch integrierter Schaltkreise für KI-Hardware.",
+
+        /* about */
+        "I'm an M.Sc. Photonics student at the Abbe School of Photonics":
+          "Ich bin M.Sc.-Student der Photonik an der <strong>Abbe School of Photonics</strong> in Jena und habe einen B.Sc. in Computer Hardware Engineering von der University of Miami, den ich als <strong>Jahrgangsbester</strong> abgeschlossen habe. Meine Arbeit reicht vom RTL-Entwurf in Verilog und VHDL auf realen FPGA-Boards bis zu optischer Messtechnik, Magnetometrie und echter Zufallszahlenerzeugung.",
+        "At the NanoMagnetoElectronics Lab I designed and operated an au":
+          "Im <strong>NanoMagnetoElectronics Lab</strong> habe ich ein automatisiertes MOKE-Messsystem (magneto-optischer Kerr-Effekt) entworfen und betrieben: ein Lock-in-Verstärker SR865A wurde über RS-232/PyVISA mit FPGA-Hardware gekoppelt, um magnetische Dünnschichten zu charakterisieren. Mein Abschlussprojekt — <strong>ARIS</strong> (Authenticated Randomness Infrastructure Service) — baut darauf einen kryptografisch prüfbaren TRNG auf.",
+        "My focus now is photonic integrated circuits — optical interco":
+          "Mein Schwerpunkt liegt heute auf <strong>photonisch integrierten Schaltkreisen</strong> — optische Verbindungen und photonische Architekturen für die KI-Beschleunigung — gefördert durch ein <strong>Deutschlandstipendium</strong> mit ams OSRAM als Förderer. Zuvor habe ich strukturierte <strong>KI-Evaluationsforschung</strong> durchgeführt und Claude, ChatGPT und Gemini an Hardwareentwicklungsaufgaben steigender Komplexität verglichen.",
+        "Outside of research: IEEE Student Member · Quantum Computing Le":
+          "Neben der Forschung: <strong>IEEE Student Member</strong> · Quantum Computing Learning Group · Hackathon-Organisator & -Planer · VEX-IQ-Robotik-Mentor & Turnierrichter",
+
+        /* about info list */
+        "Degree": "Abschluss",
+        "School": "Hochschule",
+        "Previously": "Zuvor",
+        "Focus": "Schwerpunkt",
+        "Honors": "Auszeichnungen",
+        "Languages": "Sprachen",
+        "Email": "E-Mail",
+        "Location": "Standort",
+        "Phone": "Telefon",
+        "M.Sc. Photonics (in progress)": "M.Sc. Photonik (laufend)",
+        "B.S. Computer Hardware Engineering, University of Miami": "B.Sc. Computer Hardware Engineering, University of Miami",
+        "Photonic Integrated Circuits & FPGA Design": "Photonisch integrierte Schaltkreise & FPGA-Design",
+        "Deutschlandstipendium · Tau Beta Pi · Rank #1 in Computer Engi":
+          "Deutschlandstipendium · Tau Beta Pi · Jahrgangsbester in Computer Engineering",
+        "English (native) · German (A1)": "Englisch (Muttersprache) · Deutsch (A1)",
+        "Jena, Germany": "Jena, Deutschland",
+
+        /* skills */
+        "Photonics / Optics": "Photonik / Optik",
+        "Programming Languages": "Programmiersprachen",
+        "Semiconductor / Lab": "Halbleiter / Labor",
+        "Digital Design": "Digitaldesign",
+        "Software / Tools": "Software / Werkzeuge",
+        "Concepts": "Konzepte",
+
+        /* research */
+        "Benchmark_AI — Generative AI Evaluation for Hardware Engineering":
+          "Benchmark_AI — Evaluierung generativer KI für die Hardwareentwicklung",
+        "Senior Design · University of Miami NanoMagnetoElectronics Lab":
+          "Abschlussprojekt · NanoMagnetoElectronics Lab, University of Miami · abgeschlossen Mai 2026",
+        "Collaborative Research · University of Miami · Jan – Apr 2026":
+          "Gemeinschaftsforschung · University of Miami · Jan. – Apr. 2026",
+        "ARIS is a hardware-based True Random Number Generator (TRNG) t":
+          "ARIS ist ein hardwarebasierter echter Zufallszahlengenerator (TRNG), der seine Entropie aus Hysteresemessungen des magneto-optischen Kerr-Effekts (MOKE) an magnetischen Dünnschichtproben gewinnt. Das System koppelt einen Zweiphasen-Lock-in-Verstärker SR865A von Stanford Research mit FPGA-Verarbeitung und erzeugt kryptografisch prüfbare Zufallsbitströme.",
+        "A structured 4-stage benchmarking study evaluating Claude, Cha":
+          "Eine strukturierte vierstufige Benchmark-Studie, die Claude, ChatGPT und Gemini an Hardwareentwicklungsaufgaben steigender Komplexität bewertet — von einfacher RTL-Erzeugung bis zum mehrmoduligen FPGA-Systementwurf. Die Bewertung erfolgt manuell und beurteilt Korrektheit, Codestruktur und Integrationsqualität.",
+        "Designed and automated a MOKE measurement system using LabVIEW":
+          "Entwurf und Automatisierung eines MOKE-Messsystems mit LabVIEW, Lock-in-Verstärker SR865A bei 255 Hz Chopper-Referenz und Freistrahl-Justage — rund 6× höherer Probendurchsatz gegenüber dem vorherigen manuellen Ablauf",
+        "Debugged AC/DC overload conditions in the lock-in amplifier ch":
+          "Fehlersuche bei AC/DC-Überlastzuständen in der Lock-in-Verstärkerkette, verursacht durch Streureflexionen im Strahlengang",
+        "Architected FPGA pipeline to sample lock-in output, apply NIST":
+          "Entwurf einer FPGA-Pipeline, die das Lock-in-Signal abtastet, die statistische Validierung nach NIST SP 800-22 anwendet und die Entropie an den Host streamt",
+        "Von Neumann debiasing, SHA-256 expansion into 256-bit blocks,":
+          "Von-Neumann-Entzerrung, SHA-256-Expansion auf 256-Bit-Blöcke und Ed25519-Signierung; jeder akzeptierte Block wird an ein hash-verkettetes Prüfprotokoll angehängt — eine manipulationssichere Kette aus 11.151 Blöcken",
+        "All 15 NIST SP 800-22 tests pass on the combined 2.8-million-b":
+          "Alle 15 Tests der NIST-Suite SP 800-22 werden auf dem kombinierten Datensatz von 2,8 Millionen Bit bestanden; ein unabhängiger Verifizierer bestätigt Signaturgültigkeit, Kettenintegrität und Zeitstempelfolge allein anhand des öffentlichen Schlüssels",
+        "REST API serves entropy to three demonstrations: an authentica":
+          "Eine REST-API liefert Entropie an drei Demonstrationen: ein authentifiziertes Blackjack-Spiel, eine Monte-Carlo-Simulation von Portfoliorisiken und ein Werkzeug für faire Stichprobenprüfungen",
+        "Presented as “Randomness as a Service” at the University of Mi":
+          "Präsentiert als „Randomness as a Service“ auf der Senior Design Expo 2026 der University of Miami",
+        "3 platforms evaluated: Anthropic Claude, OpenAI ChatGPT, Googl":
+          "3 Plattformen bewertet: Anthropic Claude, OpenAI ChatGPT, Google Gemini",
+        "4-stage study structure with tasks escalating from logic gate":
+          "Vierstufiger Studienaufbau mit Aufgaben von der Gatter-Instanziierung bis zur Erzeugung gepipelineter Datenpfade",
+        "Manual evaluation rubric covering synthesizability, timing cor":
+          "Manuelles Bewertungsraster für Synthetisierbarkeit, Timing-Korrektheit und Testbench-Kompatibilität",
+        "Presented at UM Computing Day and the Research, Creativity & I":
+          "Präsentiert am UM Computing Day und beim Research, Creativity & Innovation Forum (RCIF) 2026; Ergebnisse und Methodik dokumentiert im <a href=\"https://github.com/JohnLamLogic/Benchmark_AI\" target=\"_blank\">GitHub-Repo</a>",
+
+        /* projects */
+        "Complete": "Abgeschlossen",
+        "In Progress": "Laufend",
+        "Full source release pending": "Vollständige Quellcode-Veröffentlichung steht aus",
+        "16-bit RISC processor designed in Verilog on the Nexys 4 Arti":
+          "16-Bit-RISC-Prozessor in Verilog auf dem Nexys 4 Artix-7, mit 16 Universalregistern, getrenntem RAM und ROM zu je 256 Wörtern und einem 16-Befehle-ISA im MIPS-Stil (ADD/SUB/AND/XOR/SHL/SHR/BIZ/JAL) bei zweistufiger Ausführung. Testbenches auf Blockebene erreichen vollständige Abdeckung aller Befehlspfade ohne Timing-Verletzungen in der Synthese.",
+        "Registers: 16 general-purpose": "Register: 16 Universalregister",
+        "Memory: 256-word RAM / 256-word ROM": "Speicher: RAM und ROM zu je 256 Wörtern",
+        "ISA: 16 instructions, 2-cycle execute": "ISA: 16 Befehle, zweistufige Ausführung",
+        "Coverage: all instruction paths": "Abdeckung: alle Befehlspfade",
+        "Read the final report (PDF) →": "Abschlussbericht lesen (PDF) →",
+        "Download the source code (ZIP) →": "Quellcode herunterladen (ZIP) →",
+        "Full VGA display system on DE1-SoC FPGA rendering a real-time":
+          "Vollständiges VGA-Anzeigesystem auf einem DE1-SoC-FPGA, das eine Echtzeit-Zeichenanwendung mit 1280×1024 bei 60 Hz darstellt. Umgesetzt mit einem 3-Zustands-Automaten (IDLE→READ→WRITE), Dual-Port-Block-RAM als Framebuffer und Read-Modify-Write-Speicherzugriffen für glitchfreies Cursor-Rendering.",
+        "Ripple-carry adder/subtractor implemented in Verilog on the Ne":
+          "Ripple-Carry-Addierer/Subtrahierer in Verilog auf dem Nexys-4-DDR-Artix-7-Board mit 7-Segment-Anzeige, Überlauferkennung und Validierung über alle 256 Eingangskombinationen. Leistungsbericht aus Vivado.",
+        "16-to-32-bit barrel shifter on the DE1 board with 8-bit signed":
+          "16-auf-32-Bit-Barrel-Shifter auf dem DE1-Board mit 8-Bit-Steuercode mit Vorzeichen, HI/LO-Referenzbitauswahl sowie vorzeichenerhaltendem und nullfüllendem Schiebemodus. Ripple-Carry-Struktur mit MUX-Auswahl und Tristate-Treibern.",
+        "8-bit binary to 2-digit BCD converter driving a dual 7-segment":
+          "8-Bit-Binär-zu-zweistelliger-BCD-Wandler, der eine doppelte 7-Segment-LED-Anzeige (0–99) ansteuert, mit Überlauferkennung. Rein kombinatorischer Entwurf in VHDL.",
+        "8-bit arithmetic calculator implemented in VHDL supporting add":
+          "8-Bit-Rechenwerk in VHDL mit Addition, Subtraktion, Multiplikation und Division sowie 7-Segment-Ein-/Ausgabe auf FPGA-Hardware.",
+        "Multi-project DSP series in VHDL, now complete: 7-segment hex":
+          "Mehrteilige DSP-Reihe in VHDL, inzwischen abgeschlossen: 7-Segment-Hex-Decoder (0–F, vollständige Verhaltensbeschreibung), FIR-Filterung, FFT und Signalanalyse-Pipelines. Das Repository bleibt aus pädagogischen Gründen bis Januar 2027 privat, da die Aufgaben weiterhin im Lehrbetrieb verwendet werden.",
+        "Complete buffered I/O layer (mio) built in C implementing myop":
+          "Vollständige gepufferte E/A-Schicht (mio) in C mit myopen / myread / mywrite / mygetc / mygets / mygetline / myflush / myclose, konfigurierbaren Puffergrößen, drei Stream-Modi und globalen STDIN/STDOUT/STDERR-Wrappern. Keine Speicherlecks, geprüft mit Valgrind. Enthält eine voll funktionsfähige ./ls-Implementierung.",
+        "Reverse Polish Notation calculator in C++ with a custom arbitr":
+          "Rechner in umgekehrter polnischer Notation in C++ mit eigener Klasse für beliebig genaue Ganzzahlen auf Basis eines Ziffernvektors. Unterstützt den vollen Operatorsatz inklusive zusammengesetzter Zuweisung und Fakultät, Stream-E/A, String-Konstruktion und O(n)-Multiplikation. Getestet mit über 20-stelligen Operanden.",
+        "Dual-Tone Multi-Frequency signal generator in MATLAB producing":
+          "DTMF-Signalgenerator (Mehrfrequenzwahlverfahren) in MATLAB, der die Standard-Telefontastentöne durch Summieren der Zeilen- und Spaltenfrequenzen erzeugt, mit Spektralanalyse und Audioausgabe.",
+        "Python implementation of the Nim game with an AI opponent usin":
+          "Python-Umsetzung des Nim-Spiels mit KI-Gegner auf Basis der optimalen Strategie (Sprague-Grundy / Nim-Summe). Die KI spielt perfekt; menschliche Spieler wählen pro Zug Haufen und Anzahl.",
+        "C++ route mapping application implementing graph traversal alg":
+          "C++-Anwendung zur Routenplanung mit Graphtraversierungsalgorithmen zur Wegfindung. Liest Kartendaten ein, baut Adjazenzstrukturen auf und gibt optimale Routen aus.",
+        "Backtracking solution to the N-Queens constraint satisfaction":
+          "Backtracking-Lösung des N-Damen-Problems in Python. Findet alle gültigen Damenstellungen auf einem N×N-Brett, mit einstellbarer Brettgröße und Lösungsanzeige.",
+
+        /* project specs */
+        "Board: DE1-SoC (Cyclone V)": "Board: DE1-SoC (Cyclone V)",
+        "Resolution: 1280×1024 @ 60 Hz": "Auflösung: 1280×1024 @ 60 Hz",
+        "Pixel clock: 108 MHz (PLL-generated)": "Pixeltakt: 108 MHz (PLL-erzeugt)",
+        "Frame buffer: ~164 KB (1-bit/pixel)": "Framebuffer: ~164 KB (1 Bit/Pixel)",
+        "Dynamic power: 0.090 W": "Dynamische Leistung: 0,090 W",
+        "Static power: 0.097 W": "Statische Leistung: 0,097 W",
+        "Total power: 0.187 W": "Gesamtleistung: 0,187 W",
+        "Tested: 256 input combinations": "Getestet: 256 Eingangskombinationen",
+        "Shift width: 16 → 32-bit output": "Schiebebreite: 16 → 32 Bit Ausgang",
+        "Control: 8-bit signed code": "Steuerung: 8-Bit-Code mit Vorzeichen",
+        "Modes: sign-preserve / zero-fill": "Modi: vorzeichenerhaltend / nullfüllend",
+        "Latency: single clock cycle": "Latenz: ein Taktzyklus",
+
+        /* experience */
+        "Optical Instrumentation & Embedded Research Assistant — NanoMa":
+          "Wissenschaftlicher Mitarbeiter für optische Messtechnik & eingebettete Systeme — NanoMagnetoElectronics Lab",
+        "AI Benchmarking Research Assistant": "Wissenschaftlicher Mitarbeiter — KI-Benchmarking",
+        "Teaching Assistant — ECE Department": "Tutor — Fachbereich Elektro- und Computertechnik",
+        "Implementation Consultant Intern": "Praktikant — Implementierungsberatung",
+        "Aug 2025 – Apr 2026": "Aug. 2025 – Apr. 2026",
+        "Jan – Apr 2026": "Jan. – Apr. 2026",
+        "Aug 2024 – May 2026": "Aug. 2024 – Mai 2026",
+        "May – Aug 2025": "Mai – Aug. 2025",
+        "Designed embedded data acquisition system interfacing SR865A l":
+          "Entwurf eines eingebetteten Datenerfassungssystems, das den Lock-in-Verstärker SR865A über RS-232 mittels PyVISA anbindet; Steigerung des Entropiedurchsatzes von ~640 auf über 4.000 Abtastwerte pro Sitzung (~6×) für die FPGA-basierte MOKE-Optikkette",
+        "Synchronized I²C, SPI, UART, and RS-232 across SR865A, balance":
+          "Synchronisation von I²C, SPI, UART und RS-232 zwischen SR865A, symmetrischen Photodetektoren und FPGA; Diagnose und Behebung von AC/DC-Überlast und 255-Hz-Chopper-Referenzdrift",
+        "Implemented Von Neumann debiasing and NIST SP 800-22 statistic":
+          "Implementierung der Von-Neumann-Entzerrung und der statistischen Testsuite NIST SP 800-22 (15 Tests); Validierung der Entropiequalität bei p > 0,01 in allen Tests ohne Integritätsfehler",
+        "Collaboratively designed and executed a 4-stage structured ben":
+          "Gemeinsamer Entwurf und Durchführung einer vierstufigen Benchmark-Studie zu KI-gestützten Entwicklungsabläufen auf 3 LLM-Plattformen (Claude, ChatGPT, Gemini); die Stufen reichen von einzelnen Komponenten bis zu vollständigen Full-Stack-Anwendungen",
+        "Evaluated output quality across all stages per platform — func":
+          "Bewertung der Ausgabequalität über alle Stufen und Plattformen hinweg — funktionale Korrektheit, Codestruktur und Systemintegration — mit Messung von Prompt-Anzahl, Bearbeitungszeit und Nutzerzufriedenheit; vorgestellt am UM Computing Day und beim Research, Creativity & Innovation Forum (RCIF) 2026",
+        "Conducted 200+ individual code reviews for 100+ students in em":
+          "Über 200 individuelle Code-Reviews für mehr als 100 Studierende in eingebettetem C/C++ und Digitaltechnik (Verilog/VHDL); Diagnose von Hardware-Software-Integrationsfehlern mit Oszilloskopen und Logikanalysatoren, wodurch die durchschnittliche Projektabschlussquote um rund 20 % stieg",
+        "Led weekly lab sessions on memory-mapped I/O, FSM implementati":
+          "Wöchentliche Laborübungen zu speicherabgebildeter E/A, Zustandsautomaten und digitaler Timing-Analyse; Erstellung von Referenzmaterialien, die in 3 aufeinanderfolgenden Kursdurchläufen eingesetzt wurden",
+        "Optimized 15+ production SQL queries on a C# tax-processing pl":
+          "Optimierung von über 15 Produktiv-SQL-Abfragen auf einer C#-Steuerplattform für die Stadt Philadelphia; Verkürzung der durchschnittlichen Berichtserstellung von ~8 s auf ~5 s (~40 % weniger Latenz)",
+        "Resolved 20+ critical C# defects in live production, eliminati":
+          "Behebung von über 20 kritischen C#-Fehlern im Produktivbetrieb und Abschluss aller zugewiesenen Kundeneskalationen; Durchführung von über 100 Regressionstestplänen ohne Fehler nach dem Deployment bei mehr als 15 Feature-Rollouts",
+        "Built backend policy logic in OOP C# and dynamic SQL, deliveri":
+          "Aufbau der Backend-Regellogik in objektorientiertem C# und dynamischem SQL; Auslieferung von über 15 Kundenfunktionen, darunter Steuerregel-Engines für mehrere Zuständigkeitsbereiche und automatisch erzeugte Prüfpfade",
+
+        /* education */
+        "M.Sc. Photonics": "M.Sc. Photonik",
+        "B.S. Computer Hardware Engineering": "B.Sc. Computer Hardware Engineering",
+        "Abbe School of Photonics · Friedrich Schiller University Jena":
+          "Abbe School of Photonics · Friedrich-Schiller-Universität Jena",
+        "Jena, Germany · Oct 2026 – Jul 2028 (expected)": "Jena, Deutschland · Okt. 2026 – Juli 2028 (voraussichtlich)",
+        "Deutschlandstipendium Scholar — sponsored by ams OSRAM / ams S":
+          "Deutschlandstipendiat — gefördert von ams OSRAM / ams Sensors Germany GmbH",
+        "Coursework: Fundamentals of Modern Optics, Structure of Matter":
+          "Lehrveranstaltungen: Fundamentals of Modern Optics, Structure of Matter, Introduction to Optical Modelling &amp; Simulation, Experimental Optics Lab",
+        "Miami, FL · Aug 2023 – May 2026 · Ranked #1 in Computer Engine":
+          "Miami, FL · Aug. 2023 – Mai 2026 · Jahrgangsbester in Computer Engineering",
+        "Tau Beta Pi · Outstanding Student in Computer Engineering · Pr":
+          "Tau Beta Pi · Outstanding Student in Computer Engineering · Provost &amp; Dean's List (6 Semester) · Presidential Honor Roll (2 Semester)",
+        "Coursework: Microcontroller Interfacing, Embedded Systems, Com":
+          "Lehrveranstaltungen: Mikrocontroller-Anbindung, Eingebettete Systeme, Rechnerorganisation &amp; -entwurf, Prozessoren: HW/SW-Schnittstellen, Strukturierter Digitalentwurf, Halbleiterelektronik I &amp; II, Algorithmen",
+
+        /* footer */
+        "John L'Amoreaux · Built with HTML/CSS · Hosted on GitHub Pages":
+          "<span>John L'Amoreaux</span> · Erstellt mit HTML/CSS · Gehostet auf GitHub Pages · <span>johnlam.tech</span>"
+      };
+
+      var SEL = '.research-docs a, .project-pending, .nav-links a, .section-label, .section-title, .hero-sub, .hero-cta a, .about-text p,' +
+        '.info-list .label, .info-list .value, .skill-card h3, .research-card h3, .research-sub,' +
+        '.research-card > p, .research-bullets li, #projects > h3, .project-type, .project-desc,' +
+        '.project-specs div, .exp-title, .exp-company, .exp-date, .exp-bullets li, .edu-degree,' +
+        '.edu-school, .edu-detail, .edu-gpa-label, .contact-label, .contact-value, footer';
+
+      var TITLES = {
+        en: "John L'Amoreaux | Photonics & Hardware Engineer",
+        de: "John L'Amoreaux | Photonik- & Hardware-Ingenieur"
+      };
+
+      var KEYS = Object.keys(DE);
+      function norm(t) { return t.replace(/\s+/g, ' ').trim(); }
+
+      function lookup(t) {
+        if (Object.prototype.hasOwnProperty.call(DE, t)) return DE[t];
+        for (var i = 0; i < KEYS.length; i++) {
+          var k = KEYS[i];
+          if (k.length >= 25 && t.indexOf(k) === 0) return DE[k];
+        }
+        return null;
+      }
+
+      /* elements to translate, skipping any whose ancestor is also translated */
+      function targets() {
+        var all = Array.prototype.slice.call(document.querySelectorAll(SEL));
+        return all.filter(function (el) {
+          return !all.some(function (other) { return other !== el && other.contains(el); });
+        });
+      }
+
+      function toGerman() {
+        targets().forEach(function (el) {
+          var de = lookup(norm(el.textContent));
+          if (!de) return;
+          if (el.dataset.en === undefined) el.dataset.en = el.innerHTML;
+          el.innerHTML = de;
+        });
+        document.documentElement.lang = 'de';
+        document.title = TITLES.de;
+      }
+
+      function toEnglish() {
+        document.querySelectorAll('[data-en]').forEach(function (el) {
+          el.innerHTML = el.dataset.en;
+        });
+        document.documentElement.lang = 'en';
+        document.title = TITLES.en;
+      }
+
+      window.LANG = localStorage.getItem('lang') === 'de' ? 'de' : 'en';
+
+      function paint() {
+        if (window.LANG === 'de') { toGerman(); } else { toEnglish(); }
+        var lbl = document.getElementById('langLabel');
+        if (lbl) lbl.textContent = window.LANG === 'de' ? 'EN' : 'DE';
+        if (window.updateThemeBtn) window.updateThemeBtn();
+        if (window.retypeHeroTag) window.retypeHeroTag();
+      }
+
+      if (window.LANG === 'de') paint();
+
+      var btn = document.getElementById('langToggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          window.LANG = window.LANG === 'de' ? 'en' : 'de';
+          localStorage.setItem('lang', window.LANG);
+          paint();
+        });
+      }
+    })();
+  </script>
 
   <script>
     (function () {
@@ -1713,8 +2082,10 @@
 
       function updateBtn(t) {
         icon.textContent = t === 'dark' ? '☀' : '☾';
-        label.textContent = t === 'dark' ? 'Light' : 'Dark';
+        var de = window.LANG === 'de';
+        label.textContent = t === 'dark' ? (de ? 'Hell' : 'Light') : (de ? 'Dunkel' : 'Dark');
       }
+      window.updateThemeBtn = function () { updateBtn(html.getAttribute('data-theme')); };
 
       /* ── Scroll progress bar ── */
       const bar = document.getElementById('progress-bar');
@@ -1726,21 +2097,30 @@
 
       /* ── Typing animation on hero tag ── */
       const heroTag = document.getElementById('heroTag');
-      const tagText = '// hardware & embedded systems engineer';
-      const cursor = document.createElement('span');
-      cursor.className = 'cursor';
-      let i = 0;
-      heroTag.textContent = '';
-      heroTag.appendChild(cursor);
+      let typeRun = 0;
 
-      function type() {
-        if (i < tagText.length) {
-          heroTag.insertBefore(document.createTextNode(tagText[i]), cursor);
-          i++;
-          setTimeout(type, 38 + Math.random() * 22);
+      function typeHeroTag(delay) {
+        const tagText = window.LANG === 'de'
+          ? '// photonik- & hardware-ingenieur'
+          : '// photonics & hardware engineer';
+        const run = ++typeRun;
+        const cursor = document.createElement('span');
+        cursor.className = 'cursor';
+        heroTag.textContent = '';
+        heroTag.appendChild(cursor);
+        let i = 0;
+        function type() {
+          if (run !== typeRun) return;
+          if (i < tagText.length) {
+            heroTag.insertBefore(document.createTextNode(tagText[i]), cursor);
+            i++;
+            setTimeout(type, 38 + Math.random() * 22);
+          }
         }
+        setTimeout(type, delay);
       }
-      setTimeout(type, 400);
+      window.retypeHeroTag = function () { typeHeroTag(120); };
+      typeHeroTag(400);
 
       /* ── Active nav link on scroll ── */
       const sections = document.querySelectorAll('section[id]');
